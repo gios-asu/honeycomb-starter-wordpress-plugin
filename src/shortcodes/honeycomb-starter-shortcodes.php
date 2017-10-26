@@ -33,6 +33,7 @@ class Honeycomb_Starter_Shortcodes extends Hook {
    * Uncomment action lines when that action is useful for your plugin
    */
   public function define_hooks() {
+    // $this->add_action( 'init', $this, 'setup_rewrites' );
     // $this->add_action( 'wp', $this, 'add_http_cache_header' );
     // $this->add_action( 'wp_head', $this, 'add_html_cache_header' );
 
@@ -80,6 +81,17 @@ class Honeycomb_Starter_Shortcodes extends Hook {
     global $post;
     return ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'hello-world' ) );
   }
+
+  /**
+   * Set up any url rewrites: Enable if needed
+   *
+   * WordPress requires that you tell it that you are using
+   * additional parameters in the url.
+   */
+  // public function setup_rewrites() {
+  //   add_rewrite_tag( '%param1%' , '([^&]+)' );
+  //   add_rewrite_tag( '%param2%' , '([^&]+)' );
+  // }
 
   public function hello_world( $atts, $content = '' ) {
     return 'Hello from the Honeycomb Starter Plugin';
