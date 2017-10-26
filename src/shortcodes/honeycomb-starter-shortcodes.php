@@ -27,6 +27,11 @@ class Honeycomb_Starter_Shortcodes extends Hook {
     $this->define_hooks();
   }
 
+  /**
+   * Register plugin functionality through WP hooks
+   *
+   * Uncomment action lines when that action is useful for your plugin
+   */
   public function define_hooks() {
     $this->add_shortcode( 'hello-world', $this, 'hello_world' );
   }
