@@ -15,6 +15,11 @@ if ( ! defined( 'HONEYCOMB_STARTER_PLUGIN_VERSION' ) ) {
  * provides the shortcode [hello-world]
  */
 class Honeycomb_Starter_Shortcodes extends Hook {
+  use \HoneycombStarter\Options_Handler_Trait;
+
+  private $path_to_views;
+
+  const EXAMPLE_CLASS_CONSTANT  = 'Example Class Constant Value';
 
   public function __construct() {
     $this->define_hooks();
