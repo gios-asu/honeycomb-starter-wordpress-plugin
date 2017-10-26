@@ -70,6 +70,17 @@ class Honeycomb_Starter_Shortcodes extends Hook {
     }
   }
 
+  /**
+   * Returns true if the page is using the [hello-world] shortcode, else false
+   *
+   * Don't enqueue any scripts or stylesheets provided by this plugin,
+   * unless we are actually rendering the shortcode
+   */
+  private function current_page_has_hello_world_shortcode() {
+    global $post;
+    return ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'hello-world' ) );
+  }
+
   public function hello_world( $atts, $content = '' ) {
     return 'Hello from the Honeycomb Starter Plugin';
   }
