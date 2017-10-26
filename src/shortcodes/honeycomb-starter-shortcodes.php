@@ -22,6 +22,8 @@ class Honeycomb_Starter_Shortcodes extends Hook {
   const EXAMPLE_CLASS_CONSTANT  = 'Example Class Constant Value';
 
   public function __construct() {
+    parent::__construct( 'honeycomb-starter-shortcodes', HONEYCOMB_STARTER_PLUGIN_VERSION );
+    $this->path_to_views = __DIR__ . '/../views/';
     $this->define_hooks();
   }
 
