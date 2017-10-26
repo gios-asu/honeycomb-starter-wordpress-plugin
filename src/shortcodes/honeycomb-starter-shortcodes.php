@@ -1,6 +1,7 @@
 <?php
 namespace HoneycombStarter\Shortcodes;
 use Honeycomb\Wordpress\Hook;
+use HoneycombStarter\Admin\Honeycomb_Starter_Admin_Page;
 
 
 // Avoid direct calls to this file
@@ -109,8 +110,54 @@ class Honeycomb_Starter_Shortcodes extends Hook {
     }
   }
 
+  /**
+   * Handle the shortcode [hello-world]
+   *   attributes:
+   *     first_var  = 'value' or leave blank for the default value: 'default value'
+   *     second_var = integer example value
+   *     test_mode  = 'test' or leave blank for the default production
+   */
   public function hello_world( $atts, $content = '' ) {
-    return 'Hello from the Honeycomb Starter Plugin';
+    // if there are no attributes passed then $atts is not an array, its a string
+    if ( ! is_array( $atts ) ) {
+      $atts = array();
+    }
+    ensure_default( $atts, 'first_var', null );
+    ensure_default( $atts, 'second_var', 0 );
+
+    // shortcode attributes are always passed as strings. this ensures the value is parsed as a Boolean
+    // TRUE if 'true', 1, or 'on' is used (and FALSE otherwise.)
+    $atts['test_mode'] = filter_var( $atts['test_mode'], FILTER_VALIDATE_BOOLEAN );
+
+    $view_data = array(
+      'example_class_constant' => self::EXAMPLE_CLASS_CONSTANT,
+      'current_page_url' => get_permalink(),
+      'setting_one' => $this->get_option_attribute_or_default(
+          array(
+            'name'      => Honeycomb_Starter_Admin_Page::$options_name,
+            'attribute' => Honeycomb_Starter_Admin_Page::$setting_one_option_name,
+            'default'   => 'default value',
+          )
+      ),
+      'setting_two' => $this->get_option_attribute_or_default(
+          array(
+            'name'      => Honeycomb_Starter_Admin_Page::$options_name,
+            'attribute' => Honeycomb_Starter_Admin_Page::$setting_two_option_name,
+            'default'   => 0,
+          )
+      )
+    );
+
+    if ( isset( $atts['test_mode'] ) && 0 === strcasecmp( 'test', $atts['test_mode'] ) ) {
+      $view_data['testmode'] = 'Test';
+    } else {
+      $view_data['testmode'] = 'Prod'; // default to production mode
+    }
+
+    $view_name = 'hello-world-shortcode.hello-world-detail';
+
+    $response = $this->view( $view_name )->add_data( $view_data )->build();
+    return $response->content;
   }
 
 }
