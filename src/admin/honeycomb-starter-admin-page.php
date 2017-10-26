@@ -75,7 +75,7 @@ class Honeycomb_Starter_Admin_Page extends Hook {
 
     add_settings_field(
         self::$setting_one_option_name,
-        'Field1 Example',
+        'Setting One Example',
         array(
           $this,
           'setting_one_on_callback',
@@ -86,7 +86,7 @@ class Honeycomb_Starter_Admin_Page extends Hook {
 
     add_settings_field(
         self::$setting_two_option_name,
-        'Field2 Example',
+        'Setting Two Example',
         array(
           $this,
           'setting_two_on_callback',
