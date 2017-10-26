@@ -2,6 +2,7 @@
 namespace HoneycombStarter\Shortcodes;
 use Honeycomb\Wordpress\Hook;
 use HoneycombStarter\Admin\Honeycomb_Starter_Admin_Page;
+use HoneycombStarter\Options_Handler_Trait;
 
 
 // Avoid direct calls to this file
@@ -16,7 +17,7 @@ if ( ! defined( 'HONEYCOMB_STARTER_PLUGIN_VERSION' ) ) {
  * provides the shortcode [hello-world]
  */
 class Honeycomb_Starter_Shortcodes extends Hook {
-  use \HoneycombStarter\Options_Handler_Trait;
+  use Options_Handler_Trait;
 
   private $path_to_views;
 
