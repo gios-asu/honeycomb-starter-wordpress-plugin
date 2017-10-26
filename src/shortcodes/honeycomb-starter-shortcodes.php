@@ -36,6 +36,13 @@ class Honeycomb_Starter_Shortcodes extends Hook {
     $this->add_shortcode( 'hello-world', $this, 'hello_world' );
   }
 
+  /**
+   * Shorthand view wrapper to make rendering a view using Nectary's factories easier in this plugin
+   */
+  private function view( $template_name ) {
+    return new \Nectary\Factories\View_Factory( $template_name, $this->path_to_views );
+  }
+
   public function hello_world( $atts, $content = '' ) {
     return 'Hello from the Honeycomb Starter Plugin';
   }
