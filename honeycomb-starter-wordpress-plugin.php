@@ -19,10 +19,11 @@ if ( ! function_exists( 'add_filter' ) ) {
   exit();
 }
 
+define( 'HONEYCOMB_STARTER_PLUGIN_VERSION', '1.1.2' );
+
 require __DIR__ . '/vendor/autoload.php';
 
 $registry = new \Honeycomb\Services\Register();
 $registry->register(
     require __DIR__ . '/src/registry/wordpress-registry.php'
 );
-
