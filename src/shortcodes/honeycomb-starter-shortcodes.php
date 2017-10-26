@@ -33,6 +33,7 @@ class Honeycomb_Starter_Shortcodes extends Hook {
    * Uncomment action lines when that action is useful for your plugin
    */
   public function define_hooks() {
+    // $this->add_action( 'wp_enqueue_scripts', $this, 'wp_enqueue_scripts' );
     // $this->add_action( 'init', $this, 'setup_rewrites' );
     // $this->add_action( 'wp', $this, 'add_http_cache_header' );
     // $this->add_action( 'wp_head', $this, 'add_html_cache_header' );
@@ -92,6 +93,21 @@ class Honeycomb_Starter_Shortcodes extends Hook {
   //   add_rewrite_tag( '%param1%' , '([^&]+)' );
   //   add_rewrite_tag( '%param2%' , '([^&]+)' );
   // }
+
+  /**
+   * Enqueue CSS and JS
+   * Hooks onto `wp_enqueue_scripts`.
+   */
+  public function wp_enqueue_scripts() {
+    if ( $this->current_page_has_hello_world_shortcode() ) {
+      $url_to_css_file = plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/css/honeycomb-starter.css';
+      wp_enqueue_style( $this->plugin_slug, $url_to_css_file, array(), $this->version );
+
+      // alternately, if you use Bower or another dependency manager to load needed library assets, point to that location
+      $url_to_script_example = plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/css/honeycomb-starter.js';
+      wp_enqueue_script( 'script-example', $url_to_script_example, array( 'js' ), '1.0.0', false );
+    }
+  }
 
   public function hello_world( $atts, $content = '' ) {
     return 'Hello from the Honeycomb Starter Plugin';
