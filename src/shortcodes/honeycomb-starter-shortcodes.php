@@ -33,6 +33,9 @@ class Honeycomb_Starter_Shortcodes extends Hook {
    * Uncomment action lines when that action is useful for your plugin
    */
   public function define_hooks() {
+    // $this->add_action( 'wp', $this, 'add_http_cache_header' );
+    // $this->add_action( 'wp_head', $this, 'add_html_cache_header' );
+
     $this->add_shortcode( 'hello-world', $this, 'hello_world' );
   }
 
@@ -41,6 +44,30 @@ class Honeycomb_Starter_Shortcodes extends Hook {
    */
   private function view( $template_name ) {
     return new \Nectary\Factories\View_Factory( $template_name, $this->path_to_views );
+  }
+
+  /**
+   * Do not cache any sensitive form data - ASU Web Application Security Standards
+   */
+  public function add_html_cache_header() {
+    if ( $this->current_page_has_hello_world_shortcode() ) {
+      echo '<meta http-equiv="Pragma" content="no-cache"/>
+            <meta http-equiv="Expires" content="-1"/>
+            <meta http-equiv="Cache-Control" content="no-store,no-cache" />';
+    }
+  }
+
+  /**
+   * Do not cache any sensitive form data - ASU Web Application Security Standards
+   * This call back needs to hook after send_headers since we depend on the $post variable
+   * and that is not populated at the time of send_headers.
+   */
+  public function add_http_cache_header() {
+    if ( $this->current_page_has_hello_world_shortcode() ) {
+      header( 'Cache-Control: no-Cache, no-Store, must-Revalidate' );
+      header( 'Pragma: no-Cache' );
+      header( 'Expires: 0' );
+    }
   }
 
   public function hello_world( $atts, $content = '' ) {
