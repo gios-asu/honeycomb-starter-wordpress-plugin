@@ -1,7 +1,7 @@
 <?php
 /**
- * Register any classes to be registerd that provide:
- *  shortcodes, pages, enqueuers, etc
+ * Register any classes to be registered that provide:
+ *  shortcodes, widgets, pages, services, etc
  */
 
 return [
