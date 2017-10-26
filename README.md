@@ -10,5 +10,5 @@ A starter WordPress plugin for building your own Honeycomb-based plugins
 
 # Shortcodes
 
-* `[hellow-world]` - Display a Hello World message.
+* `[hello-world]` - Display a Hello World message.
 
