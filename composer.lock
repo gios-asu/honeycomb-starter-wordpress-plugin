@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e22a96c9ccd48d327fd65235a3fbe92",
+    "content-hash": "6f2b8c0d07abe4131391d372a7421dff",
     "packages": [
         {
             "name": "coduo/php-humanizer",
@@ -69,14 +69,14 @@
         },
         {
             "name": "gios-asu/honeycomb",
-            "version": "1.0.1",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gios-asu/honeycomb.git",
-                "reference": "e097f4f2cb8d444812a1838e2735c7c0ad67a476"
+                "reference": "1cde20954b187fdff0be061c236bbf57ef9b4536"
             },
             "require": {
-                "gios-asu/nectary": "^0.1.10"
+                "gios-asu/nectary": ">=0.2.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.8.*",
@@ -98,15 +98,15 @@
                 }
             ],
             "description": "A framework for WordPress plugins",
-            "time": "2016-11-09T20:22:08+00:00"
+            "time": "2017-02-27T17:39:34+00:00"
         },
         {
             "name": "gios-asu/nectary",
-            "version": "0.1.10",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gios-asu/nectary.git",
-                "reference": "25ad186a70603d1b30a92451b64febf066917921"
+                "reference": "e46ab02826aaf8f10af4614305dafe0efb878122"
             },
             "require": {
                 "coduo/php-humanizer": ">=2.0.0-beta",
@@ -144,7 +144,7 @@
                 }
             ],
             "description": "A simple PHP framework that is not tied to a web interface",
-            "time": "2016-11-09T20:06:52+00:00"
+            "time": "2016-11-15T20:46:34+00:00"
         },
         {
             "name": "symfony/config",
