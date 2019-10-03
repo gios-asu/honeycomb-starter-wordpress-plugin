@@ -1,8 +1,8 @@
 <?php
-namespace HoneycombStarter\Shortcodes;
+namespace GiosOrcidRetriever\Shortcodes;
 use Honeycomb\Wordpress\Hook;
-use HoneycombStarter\Admin\Honeycomb_Starter_Admin_Page;
-use HoneycombStarter\Options_Handler_Trait;
+use GiosOrcidRetriever\Admin\Gios_Orcid_Retriever_Admin_Page;
+use GiosOrcidRetriever\Options_Handler_Trait;
 
 
 // Avoid direct calls to this file
@@ -16,7 +16,7 @@ if ( ! defined( 'GIOS_ORCID_RETRIEVER_VERSION' ) ) {
  * Honeycomb_Starter_Shortcodes
  * provides the shortcode [hello-world]
  */
-class Honeycomb_Starter_Shortcodes extends Hook {
+class Gios_Orcid_Retriever_Shortcodes extends Hook {
   use Options_Handler_Trait;
 
   private $path_to_views;
@@ -135,15 +135,15 @@ class Honeycomb_Starter_Shortcodes extends Hook {
       'current_page_url' => get_permalink(),
       'setting_one' => $this->get_option_attribute_or_default(
           array(
-            'name'      => Honeycomb_Starter_Admin_Page::$options_name,
-            'attribute' => Honeycomb_Starter_Admin_Page::$setting_one_option_name,
+            'name'      => Gios_Orcid_Retriever_Admin_Page::$options_name,
+            'attribute' => Gios_Orcid_Retriever_Admin_Page::$setting_one_option_name,
             'default'   => 'default value',
           )
       ),
       'setting_two' => $this->get_option_attribute_or_default(
           array(
-            'name'      => Honeycomb_Starter_Admin_Page::$options_name,
-            'attribute' => Honeycomb_Starter_Admin_Page::$setting_two_option_name,
+            'name'      => Gios_Orcid_Retriever_Admin_Page::$options_name,
+            'attribute' => Gios_Orcid_Retriever_Admin_Page::$setting_two_option_name,
             'default'   => 0,
           )
       )

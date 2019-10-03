@@ -5,6 +5,6 @@
  */
 
 return [
-  HoneycombStarter\Shortcodes\Honeycomb_Starter_Shortcodes::class,
-  HoneycombStarter\Admin\Honeycomb_Starter_Admin_Page::class,
+  GiosOrcidRetriever\Shortcodes\Gios_Orcid_Retriever_Shortcodes::class,
+  GiosOrcidRetriever\Admin\Gios_Orcid_Retriever_Admin_Page::class,
 ];

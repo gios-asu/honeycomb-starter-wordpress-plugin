@@ -1,5 +1,5 @@
 <?php
-namespace HoneycombStarter\Admin;
+namespace GiosOrcidRetriever\Admin;
 use Honeycomb\Wordpress\Hook;
 
 // Avoid direct calls to this file
@@ -10,11 +10,11 @@ if ( ! defined( 'GIOS_ORCID_RETRIEVER_VERSION' ) ) {
 }
 
 /**
- * Honeycomb_Starter_Admin_Page
+ * Gios_Orcid_Retriever_Admin_Page
  * provides the WP Admin settings page
  */
-class Honeycomb_Starter_Admin_Page extends Hook {
-  use \HoneycombStarter\Options_Handler_Trait;
+class Gios_Orcid_Retriever_Admin_Page extends Hook {
+  use \GiosOrcidRetriever\Options_Handler_Trait;
 
   public static $options_name = 'honeycomb-starter-options';
   public static $options_group = 'honeycomb-starter-options_group';

@@ -1,6 +1,6 @@
 <?php
 
-namespace HoneycombStarter;
+namespace GiosOrcidRetriever;
 
 trait Options_Handler_Trait {
   /**
