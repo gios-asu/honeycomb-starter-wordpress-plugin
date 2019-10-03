@@ -1,11 +1,11 @@
 {
-  "name": "gios-asu/honeycomb-starter-wordpress-plugin",
-  "description": "A starter WordPress plugin for building your own Honeycomb-based plugins",
+  "name": "gios-asu/gios-oricd-retriever",
+  "description": "A simple plugin for retrieving ORCID iD information",
   "type": "project",
   "authors": [
     {
-      "name": "Nathan Rollins",
-      "email": "nathan.rollins@asu.edu"
+      "name": "Walter McConnell",
+      "email": "walter.mcconnell@asu.edu"
     }
   ],
   "autoload": {
