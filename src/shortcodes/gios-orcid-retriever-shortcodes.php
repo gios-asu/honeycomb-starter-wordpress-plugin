@@ -6,7 +6,7 @@ use HoneycombStarter\Options_Handler_Trait;
 
 
 // Avoid direct calls to this file
-if ( ! defined( 'HONEYCOMB_STARTER_PLUGIN_VERSION' ) ) {
+if ( ! defined( 'GIOS_ORCID_RETRIEVER_VERSION' ) ) {
   header( 'Status: 403 Forbidden' );
   header( 'HTTP/1.1 403 Forbidden' );
   exit();
@@ -24,7 +24,7 @@ class Honeycomb_Starter_Shortcodes extends Hook {
   const EXAMPLE_CLASS_CONSTANT  = 'Example Class Constant Value';
 
   public function __construct() {
-    parent::__construct( 'honeycomb-starter-shortcodes', HONEYCOMB_STARTER_PLUGIN_VERSION );
+    parent::__construct( 'honeycomb-starter-shortcodes', GIOS_ORCID_RETRIEVER_VERSION );
     $this->path_to_views = __DIR__ . '/../views/';
     $this->define_hooks();
   }
